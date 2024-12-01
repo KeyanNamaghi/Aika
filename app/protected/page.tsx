@@ -16,16 +16,16 @@ export default async function ProtectedPage() {
   }
 
   return (
-    <div className='flex w-full flex-1 flex-col gap-12'>
-      <div className='flex flex-col items-start gap-2'>
+    <div className='flex w-[90vw] flex-col gap-12 sm:w-[600px]'>
+      {/* <div className='flex flex-col items-start gap-2'>
         <h2 className='mb-4 text-2xl font-bold'>Your user details</h2>
         <pre className='max-h-32 overflow-auto rounded border p-3 font-mono text-xs'>{JSON.stringify(user, null, 2)}</pre>
-      </div>
+      </div> */}
 
       <CreateNote />
 
       {notes && (
-        <div className='flex flex-col gap-2'>
+        <div className='flex w-full flex-col gap-2'>
           {notes.map((note) => (
             <Note key={note.id} title={note.title} id={note.id} />
           ))}

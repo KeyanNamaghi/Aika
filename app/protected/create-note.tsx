@@ -1,8 +1,7 @@
 'use client'
-import { saveNote } from '@/actions/notes'
+import { createNote } from '@/actions/notes'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useAction } from 'next-safe-action/hooks'
@@ -11,7 +10,9 @@ import { CircleAlert } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 
 export const CreateNote = () => {
-  const { executeAsync, hasErrored, hasSucceeded, isPending, reset: resetAction } = useAction(saveNote)
+  const { executeAsync, hasErrored, isPending } = useAction(createNote, {
+    onSuccess: () => resetForm(),
+  })
   const {
     handleSubmit,
     reset: resetForm,
@@ -22,16 +23,8 @@ export const CreateNote = () => {
     defaultValues: { title: '' },
   })
 
-  useEffect(() => {
-    if (hasSucceeded) {
-      resetAction()
-      resetForm()
-    }
-  }, [hasSucceeded])
-
   return (
     <form className='flex flex-col gap-2' onSubmit={handleSubmit(executeAsync)}>
-      <h2 className='mb-4 text-2xl font-bold'>Create a new note</h2>
       <Controller
         control={control}
         name='title'

@@ -5,7 +5,11 @@ export default function Header() {
   return (
     <div className='flex flex-col items-center gap-16'>
       <div className='flex items-center justify-center gap-8'>
-        <a href='https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs' target='_blank' rel='noreferrer'>
+        <a
+          href='https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs'
+          target='_blank'
+          rel='noreferrer'
+        >
           <SupabaseLogo />
         </a>
         <span className='h-6 rotate-45 border-l' />

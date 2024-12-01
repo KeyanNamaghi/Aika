@@ -1,6 +1,13 @@
 export default function SupabaseLogo() {
   return (
-    <svg aria-label='Supabase logo' width='140' height='30' viewBox='0 0 115 23' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      aria-label='Supabase logo'
+      width='140'
+      height='30'
+      viewBox='0 0 115 23'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <g clipPath='url(#clip0_4671_51136)'>
         <g clipPath='url(#clip1_4671_51136)'>
           <path
@@ -51,11 +58,25 @@ export default function SupabaseLogo() {
         />
       </g>
       <defs>
-        <linearGradient id='paint0_linear_4671_51136' x1='11.4954' y1='11.1486' x2='19.3439' y2='14.4777' gradientUnits='userSpaceOnUse'>
+        <linearGradient
+          id='paint0_linear_4671_51136'
+          x1='11.4954'
+          y1='11.1486'
+          x2='19.3439'
+          y2='14.4777'
+          gradientUnits='userSpaceOnUse'
+        >
           <stop stopColor='#249361' />
           <stop offset='1' stopColor='#3ECF8E' />
         </linearGradient>
-        <linearGradient id='paint1_linear_4671_51136' x1='8.00382' y1='6.42177' x2='11.5325' y2='13.1398' gradientUnits='userSpaceOnUse'>
+        <linearGradient
+          id='paint1_linear_4671_51136'
+          x1='8.00382'
+          y1='6.42177'
+          x2='11.5325'
+          y2='13.1398'
+          gradientUnits='userSpaceOnUse'
+        >
           <stop />
           <stop offset='1' stopOpacity='0' />
         </linearGradient>

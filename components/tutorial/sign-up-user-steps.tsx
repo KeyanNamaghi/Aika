@@ -21,7 +21,10 @@ export default function SignUpUserSteps() {
           </p>
           <p className='mt-4'>
             You will need to{' '}
-            <Link className='text-primary hover:text-foreground' href={'https://supabase.com/dashboard/project/_/auth/url-configuration'}>
+            <Link
+              className='text-primary hover:text-foreground'
+              href={'https://supabase.com/dashboard/project/_/auth/url-configuration'}
+            >
               update your Supabase project
             </Link>{' '}
             with redirect URLs based on your Vercel deployment URLs.
@@ -45,7 +48,11 @@ export default function SignUpUserSteps() {
                 {`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL?.replace('.vercel.app', '')}-*-[vercel-team-url].vercel.app/**`}
               </span>{' '}
               (Vercel Team URL can be found in{' '}
-              <Link className='text-primary hover:text-foreground' href='https://vercel.com/docs/accounts/create-a-team#find-your-team-id' target='_blank'>
+              <Link
+                className='text-primary hover:text-foreground'
+                href='https://vercel.com/docs/accounts/create-a-team#find-your-team-id'
+                target='_blank'
+              >
                 Vercel Team settings
               </Link>
               )
@@ -66,7 +73,8 @@ export default function SignUpUserSteps() {
           <Link href='/sign-up' className='font-bold text-foreground/80 hover:underline'>
             Sign up
           </Link>{' '}
-          page and sign up your first user. It's okay if this is just you for now. Your awesome idea will have plenty of users later!
+          page and sign up your first user. It's okay if this is just you for now. Your awesome idea will have plenty of
+          users later!
         </p>
       </TutorialStep>
     </ol>

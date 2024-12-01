@@ -50,12 +50,22 @@ export default function FetchDataSteps() {
       <TutorialStep title='Create some tables and insert some data'>
         <p>
           Head over to the{' '}
-          <a href='https://supabase.com/dashboard/project/_/editor' className='font-bold text-foreground/80 hover:underline' target='_blank' rel='noreferrer'>
+          <a
+            href='https://supabase.com/dashboard/project/_/editor'
+            className='font-bold text-foreground/80 hover:underline'
+            target='_blank'
+            rel='noreferrer'
+          >
             Table Editor
           </a>{' '}
-          for your Supabase project to create a table and insert some example data. If you're stuck for creativity, you can copy and paste the following into
-          the{' '}
-          <a href='https://supabase.com/dashboard/project/_/sql/new' className='font-bold text-foreground/80 hover:underline' target='_blank' rel='noreferrer'>
+          for your Supabase project to create a table and insert some example data. If you're stuck for creativity, you
+          can copy and paste the following into the{' '}
+          <a
+            href='https://supabase.com/dashboard/project/_/sql/new'
+            className='font-bold text-foreground/80 hover:underline'
+            target='_blank'
+            rel='noreferrer'
+          >
             SQL Editor
           </a>{' '}
           and click RUN!
