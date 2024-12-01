@@ -41,7 +41,7 @@ export const UpdateNote = ({ id, title, setIsEditing }: UpdateNoteProps) => {
         )}
       />
       {errors.title && <p className='text-sm text-red-500'>{errors.title.message}</p>}
-      <Button disabled={isPending} variant='default' onClick={handleSubmit}>
+      <Button disabled={isPending} onClick={handleSubmit}>
         Update
       </Button>
       {hasErrored && (

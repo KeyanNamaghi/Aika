@@ -21,7 +21,7 @@ export default async function Signup(props: { searchParams: Promise<Message> }) 
       <form className='mx-auto flex min-w-64 max-w-64 flex-col'>
         <h1 className='text-2xl font-medium'>Sign up</h1>
         <p className='text text-sm text-foreground'>
-          Already have an account?{' '}
+          Already have an account?
           <Link className='font-medium text-primary underline' href='/sign-in'>
             Sign in
           </Link>

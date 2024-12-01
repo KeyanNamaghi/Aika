@@ -33,9 +33,7 @@ export const CreateNote = () => {
         )}
       />
       {errors.title && <p className='text-sm text-red-500'>{errors.title.message}</p>}
-      <Button disabled={isPending} variant='default'>
-        Create note
-      </Button>
+      <Button disabled={isPending}>Create note</Button>
       {hasErrored && (
         <Alert variant='destructive'>
           <CircleAlert className='h-4 w-4' />
