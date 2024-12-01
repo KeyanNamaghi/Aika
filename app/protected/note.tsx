@@ -5,8 +5,6 @@ import { Card, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { useActionState, useEffect, useState } from 'react'
 
-// TODO: delete and edit should be split out into their own components
-
 export const Note = ({ title, id }: { title: string; id: string }) => {
   const [editing, setEditing] = useState(false)
   const [deleteState, deleteFormAction, deleteIsPending] = useActionState(deleteNote, { error: null, data: null })

@@ -53,7 +53,8 @@ export default function FetchDataSteps() {
           <a href='https://supabase.com/dashboard/project/_/editor' className='font-bold text-foreground/80 hover:underline' target='_blank' rel='noreferrer'>
             Table Editor
           </a>{' '}
-          for your Supabase project to create a table and insert some example data. If you're stuck for creativity, you can copy and paste the following into the{' '}
+          for your Supabase project to create a table and insert some example data. If you're stuck for creativity, you can copy and paste the following into
+          the{' '}
           <a href='https://supabase.com/dashboard/project/_/sql/new' className='font-bold text-foreground/80 hover:underline' target='_blank' rel='noreferrer'>
             SQL Editor
           </a>{' '}
@@ -65,7 +66,10 @@ export default function FetchDataSteps() {
       <TutorialStep title='Query Supabase data from Next.js'>
         <p>
           To create a Supabase client and query data from an Async Server Component, create a new page.tsx file at{' '}
-          <span className='relative rounded border bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground'>/app/notes/page.tsx</span> and add the following.
+          <span className='relative rounded border bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground'>
+            /app/notes/page.tsx
+          </span>{' '}
+          and add the following.
         </p>
         <CodeBlock code={server} />
         <p>Alternatively, you can use a Client Component.</p>

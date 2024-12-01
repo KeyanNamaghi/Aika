@@ -10,8 +10,14 @@ export default function SignUpUserSteps() {
           <p>It looks like this App is hosted on Vercel.</p>
           <p className='mt-4'>
             This particular deployment is
-            <span className='relative rounded border bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground'>"{process.env.VERCEL_ENV}"</span> on
-            <span className='relative rounded border bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground'>https://{process.env.VERCEL_URL}</span>.
+            <span className='relative rounded border bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground'>
+              "{process.env.VERCEL_ENV}"
+            </span>{' '}
+            on
+            <span className='relative rounded border bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground'>
+              https://{process.env.VERCEL_URL}
+            </span>
+            .
           </p>
           <p className='mt-4'>
             You will need to{' '}
@@ -22,7 +28,10 @@ export default function SignUpUserSteps() {
           </p>
           <ul className='mt-4'>
             <li>
-              - <span className='relative rounded border bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground'>http://localhost:3000/**</span>
+              -{' '}
+              <span className='relative rounded border bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground'>
+                http://localhost:3000/**
+              </span>
             </li>
             <li>
               -{' '}
@@ -42,7 +51,11 @@ export default function SignUpUserSteps() {
               )
             </li>
           </ul>
-          <Link href='https://supabase.com/docs/guides/auth/redirect-urls#vercel-preview-urls' target='_blank' className='mt-4 flex items-center gap-1 text-sm text-primary/50 hover:text-primary'>
+          <Link
+            href='https://supabase.com/docs/guides/auth/redirect-urls#vercel-preview-urls'
+            target='_blank'
+            className='mt-4 flex items-center gap-1 text-sm text-primary/50 hover:text-primary'
+          >
             Redirect URLs Docs <ArrowUpRight size={14} />
           </Link>
         </TutorialStep>
