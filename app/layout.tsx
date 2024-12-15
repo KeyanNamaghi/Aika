@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <HeaderAuth />
                 </div>
               </nav>
-              <div className='flex max-w-5xl flex-col gap-20 p-5'>{children}</div>
+              {children}
               <footer className='mb-4 mt-16 grid w-full gap-4'>
                 <Separator />
                 <div className='flex h-5 items-center justify-center space-x-4 text-xs'>
