@@ -12,7 +12,6 @@ export default async function Track() {
 
   return (
     <div className='flex w-[90vw] flex-col gap-12 sm:w-[600px]'>
-      <CreateNote />
       {notes && (
         <div className='flex w-full flex-col gap-2'>
           {notes.map((note) => (
