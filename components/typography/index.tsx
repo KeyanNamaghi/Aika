@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils'
 type Typography<T extends React.ElementType> = { as?: T; children: React.ReactNode } & React.ComponentPropsWithoutRef<T>
 
 export const Caption = <T extends React.ElementType>({ as, className, children }: Typography<T>) => {
-  const Component = as || 'caption'
+  const Component = as || 'p'
   return <Component className={cn('text-xs', className)}>{children}</Component>
 }
 
