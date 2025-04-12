@@ -1,8 +1,10 @@
 import { Stack } from '@/components/layouts'
+import { SubmitButton } from '@/components/submit-button'
 import { Heading, Body, Caption } from '@/components/typography'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
+import { ColorDot } from '@/components/ui/color-dot'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
@@ -92,6 +94,21 @@ const Page = () => {
             </div>
           </PopoverContent>
         </Popover>
+
+        <Separator />
+
+        <Body>Color Dot</Body>
+        <Stack direction='row'>
+          <ColorDot value='amber' />
+          <ColorDot value='lime' />
+          <ColorDot value='emerald' />
+          <ColorDot value='sky' />
+          <ColorDot value='indigo' />
+          <ColorDot value='violet' />
+          <ColorDot value='fuchsia' />
+          <ColorDot value='rose' />
+          <ColorDot value='default' />
+        </Stack>
       </Stack>
     </div>
   )

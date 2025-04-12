@@ -3,31 +3,36 @@ import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 
 import { actionClient } from '@/lib/safe-action'
-import { createEventSchema, deleteEventSchema, updateEventSchema } from '@/schemas/event'
+import { createEventOccurrenceSchema, createEventSchema, deleteEventSchema } from '@/schemas/event'
+import { redirect } from 'next/navigation'
 
-export const createEvent = actionClient.schema(createEventSchema).action(async ({ parsedInput: { title } }) => {
-  if (!title || title === 'error') throw new Error('Title is required')
+export const createEvent = actionClient
+  .schema(createEventSchema)
+  .action(async ({ parsedInput: { name, description } }) => {
+    if (!name || name === 'error') throw new Error('Name is required')
 
-  const supabase = await createClient()
-  const { data: userData, error: userError } = await supabase.auth.getUser()
+    const supabase = await createClient()
+    const { data: userData, error: userError } = await supabase.auth.getUser()
 
-  if (userError || !userData?.user?.id) {
-    throw new Error('User is not authenticated')
-  }
+    if (userError || !userData?.user?.id) {
+      throw new Error('User is not authenticated')
+    }
 
-  const userId = userData.user.id
+    const { error } = await supabase.from('events').insert([
+      {
+        user_id: userData.user.id,
+        name,
+        description,
+      },
+    ])
 
-  const { error } = await supabase.from('events').insert([
-    {
-      user_id: userId,
-      name: title,
-      description: 'test',
-    },
-  ])
+    if (error) {
+      console.error({ error })
+      throw new Error('Error saving Event')
+    }
 
-  if (error) throw new Error('Error saving Event')
-  revalidatePath('')
-})
+    redirect('/protected')
+  })
 
 export const deleteEvent = actionClient.schema(deleteEventSchema).action(async ({ parsedInput: { id } }) => {
   if (!id) throw new Error('Title is required')
@@ -45,18 +50,15 @@ export const deleteEvent = actionClient.schema(deleteEventSchema).action(async (
 //   revalidatePath('')
 // })
 
-export const createOccurrence = actionClient.schema(createEventSchema).action(async ({ parsedInput: { title } }) => {
-  if (!title || title === 'error') throw new Error('Title is required')
-  const supabase = await createClient()
-  const { error } = await supabase.from('event_occurrences').insert([
-    {
-      event_id: 'f07ccb50-1e2b-4420-84bb-12432a529b82',
-      notes: 'Some notes',
-    },
-  ])
-  if (error) {
-    console.error({ error })
-    throw new Error('Error saving occurrence')
-  }
-  revalidatePath('')
-})
+export const createOccurrence = actionClient
+  .schema(createEventOccurrenceSchema)
+  .action(async ({ parsedInput: { event_id, notes } }) => {
+    if (!event_id) throw new Error('event_id is required')
+    const supabase = await createClient()
+    const { error } = await supabase.from('event_occurrences').insert([{ event_id, notes }])
+    if (error) {
+      console.error({ error })
+      throw new Error('Error saving occurrence')
+    }
+    revalidatePath('')
+  })

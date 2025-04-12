@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <HeaderAuth />
                 </div>
               </nav>
-              {children}
+              <div className='flex-auto'>{children}</div>
               <footer className='mt-16 mb-4 grid w-full gap-4'>
                 <Separator />
                 <div className='flex h-5 items-center justify-center space-x-4 text-xs'>

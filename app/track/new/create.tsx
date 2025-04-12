@@ -21,7 +21,7 @@ import { Button } from '@/components/ui/button'
 export const Create = () => {
   const { handleSubmit, control } = useForm<CreateEventSchema>({
     resolver: zodResolver(createEventSchema),
-    defaultValues: { title: '', colour: Colour.Amber, isGood: 'yes' },
+    defaultValues: { title: '', colour: '', isGood: 'yes' },
   })
 
   const circleVariants = cva('h-8 w-8 rounded-full flex items-center justify-center border border-solid', {
