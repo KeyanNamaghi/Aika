@@ -20,7 +20,7 @@ export default async function ProtectedPage() {
       {notes && (
         <div className='flex w-full flex-col gap-2'>
           {notes.map((note) => (
-            <Note key={note.id} title={note.title} id={note.id} />
+            <Note key={note.id} {...note} />
           ))}
         </div>
       )}

@@ -10,7 +10,7 @@ export const createNote = actionClient.schema(createNoteSchema).action(async ({ 
   const supabase = await createClient()
   const { error } = await supabase
     .from('notes')
-    .insert([{ title, user_id: (await supabase.auth.getUser()).data.user?.id }])
+    .insert([{ title, user_id: (await supabase.auth.getUser()).data.user?.id, created_date: new Date() }])
   if (error) throw new Error('Error saving note')
   revalidatePath('')
 })

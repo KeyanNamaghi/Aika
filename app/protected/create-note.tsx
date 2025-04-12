@@ -8,9 +8,10 @@ import { useAction } from 'next-safe-action/hooks'
 import { CreateNoteSchema, createNoteSchema } from '@/schemas/notes'
 import { CircleAlert } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { createEvent, createOccurrence } from '@/actions/event'
 
 export const CreateNote = () => {
-  const { executeAsync, hasErrored, isPending } = useAction(createNote, {
+  const { executeAsync, hasErrored, isPending } = useAction(createEvent, {
     onSuccess: () => resetForm(),
   })
   const {

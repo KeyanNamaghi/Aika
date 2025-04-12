@@ -1,10 +1,10 @@
 import HeaderAuth from '@/components/header-auth'
 import { ThemeSwitcher } from '@/components/theme-switcher'
+import { Separator } from '@/components/ui/separator'
 import { GeistSans } from 'geist/font/sans'
 import { ThemeProvider } from 'next-themes'
 import Link from 'next/link'
 import './globals.css'
-import { Separator } from '@/components/ui/separator'
 
 const defaultUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'
 
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <nav className='border-b-foreground/10 flex h-16 w-full justify-center border-b'>
                 <div className='flex w-full max-w-5xl items-center justify-between p-3 px-5 text-sm'>
                   <div className='flex items-center gap-5 font-semibold'>
-                    <Link href={'/'}>Aika</Link>
+                    <Link href='/'>Aika</Link>
                     <ThemeSwitcher />
                   </div>
                   <HeaderAuth />
