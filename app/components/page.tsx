@@ -3,6 +3,7 @@ import { SubmitButton } from '@/components/submit-button'
 import { Heading, Body, Caption } from '@/components/typography'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ColorDot } from '@/components/ui/color-dot'
 import { Input } from '@/components/ui/input'
@@ -109,6 +110,17 @@ const Page = () => {
           <ColorDot value='rose' />
           <ColorDot value='default' />
         </Stack>
+
+        <Separator />
+
+        <Body>Card</Body>
+        <Card>
+          <CardHeader>
+            <CardTitle>Card Title</CardTitle>
+          </CardHeader>
+          <CardContent>Card Content</CardContent>
+          <CardFooter>Card Footer</CardFooter>
+        </Card>
       </Stack>
     </div>
   )

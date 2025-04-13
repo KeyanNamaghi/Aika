@@ -3,10 +3,11 @@ import { redirect } from 'next/navigation'
 import { Note } from './note'
 import Link from 'next/link'
 import { Stack } from '@/components/layouts'
+import { Event } from './event'
 
 export default async function ProtectedPage() {
   const supabase = await createClient()
-  const { data: notes } = await supabase.from('events').select()
+  const { data: events } = await supabase.from('events').select()
   const {
     data: { user },
   } = await supabase.auth.getUser()
@@ -20,12 +21,10 @@ export default async function ProtectedPage() {
       <Link href='/protected/create-event'>
         <h1 className='text-2xl font-bold'>Create Event</h1>
       </Link>
-      {notes && (
+      {events && (
         <div className='flex w-full flex-col gap-2'>
-          {notes.map((note) => (
-            <div key={note.id} className='w-full'>
-              {note.name}
-            </div>
+          {events.map((event) => (
+            <Event key={event.id} {...event} />
           ))}
         </div>
       )}
