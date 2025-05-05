@@ -13,7 +13,7 @@ export const Body = <T extends React.ElementType>({ as, className, children }: T
 
 export const Heading = <T extends React.ElementType>({ as, className, children }: Typography<T>) => {
   const Component = as || 'h1'
-  return <Component className={cn('text-3xl font-bold', className)}>{children}</Component>
+  return <Component className={cn('text-2xl font-bold sm:text-3xl', className)}>{children}</Component>
 }
 
 export const SubHeading = <T extends React.ElementType>({ as, className, children }: Typography<T>) => {
