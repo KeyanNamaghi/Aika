@@ -1,5 +1,4 @@
 import { Stack } from '@/components/layouts'
-import { SubmitButton } from '@/components/submit-button'
 import { Heading, Body, Caption } from '@/components/typography'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'

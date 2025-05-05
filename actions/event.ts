@@ -42,6 +42,15 @@ export const deleteEvent = actionClient.schema(deleteEventSchema).action(async (
   revalidatePath('')
 })
 
+export const deleteEventAction = async (formData: FormData) => {
+  const id = formData.get('id')
+  if (!id) throw new Error('Title is required')
+  const supabase = await createClient()
+  const { error } = await supabase.from('events').delete().eq('id', id)
+  if (error) throw new Error('Error deleting Event')
+  revalidatePath('')
+}
+
 // export const updateEvent = actionClient.schema(updateEventSchema).action(async ({ parsedInput: { id, title } }) => {
 //   if (!title || !id || title === 'error') throw new Error('Title is required')
 //   const supabase = await createClient()

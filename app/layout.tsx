@@ -36,11 +36,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Separator />
                 <div className='flex h-5 items-center justify-center space-x-4 text-xs'>
                   <p>
-                    <a href='/'>About</a>
+                    <a href='/'>Home</a>
                   </p>
                   <Separator orientation='vertical' />
                   <p>
-                    <a href='/'>Contact</a>
+                    <a href='/components'>Components</a>
                   </p>
                   <Separator orientation='vertical' />
                   <p>

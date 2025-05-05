@@ -7,6 +7,11 @@ import { Database } from '@/database.types'
 import { Stack } from '@/components/layouts'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { EllipsisVertical } from 'lucide-react'
+import { deleteEvent, deleteEventAction } from '@/actions/event'
+import { useAction } from 'next-safe-action/hooks'
+import { deleteEventSchema, DeleteEventSchema } from '@/schemas/event'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 export const Event = ({
   created_at,
@@ -30,8 +35,9 @@ export const Event = ({
             </PopoverTrigger>
             <PopoverContent>
               <form className='flex'>
-                <Button type='submit' variant='destructive'>
-                  Sign out
+                <input type='hidden' name='id' value={id} />
+                <Button formAction={deleteEventAction} variant='destructive'>
+                  Delete
                 </Button>
               </form>
             </PopoverContent>
