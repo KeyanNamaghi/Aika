@@ -17,7 +17,7 @@ export default async function ProtectedPage() {
   }
 
   return (
-    <Stack direction='col'>
+    <Stack direction='col' align='center' className='m-auto max-w-2xl'>
       <Link href='/protected/create-event'>
         <h1 className='text-2xl font-bold'>Create Event</h1>
       </Link>

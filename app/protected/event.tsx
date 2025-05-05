@@ -34,11 +34,15 @@ export const Event = ({
               </Button>
             </PopoverTrigger>
             <PopoverContent>
-              <form className='flex'>
-                <input type='hidden' name='id' value={id} />
-                <Button formAction={deleteEventAction} variant='destructive'>
-                  Delete
-                </Button>
+              <form>
+                <Stack gap='2'>
+                  <Body>Are you sure?</Body>
+                  <Caption>This can not be undone</Caption>
+                  <input type='hidden' name='id' value={id} />
+                  <Button formAction={deleteEventAction} variant='destructive'>
+                    Delete
+                  </Button>
+                </Stack>
               </form>
             </PopoverContent>
           </Popover>
