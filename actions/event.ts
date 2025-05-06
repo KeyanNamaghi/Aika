@@ -61,10 +61,12 @@ export const deleteEventAction = async (formData: FormData) => {
 
 export const createOccurrence = actionClient
   .schema(createOccurrenceSchema)
-  .action(async ({ parsedInput: { event_id, notes } }) => {
+  .action(async ({ parsedInput: { event_id, notes, occurred_at } }) => {
     if (!event_id) throw new Error('event_id is required')
     const supabase = await createClient()
-    const { error } = await supabase.from('event_occurrences').insert([{ event_id, notes }])
+    const { error } = await supabase
+      .from('event_occurrences')
+      .insert([{ event_id, notes, occurred_at: occurred_at?.toISOString() }])
     if (error) {
       console.error({ error })
       throw new Error('Error saving occurrence')

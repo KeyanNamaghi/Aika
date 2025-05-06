@@ -40,8 +40,10 @@ export type Database = {
       }
       events: {
         Row: {
+          category: string | null
           created_at: string | null
           description: string | null
+          desirable: boolean
           id: string
           last_occurred_at: string | null
           name: string
@@ -49,8 +51,10 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          category?: string | null
           created_at?: string | null
           description?: string | null
+          desirable?: boolean
           id?: string
           last_occurred_at?: string | null
           name: string
@@ -58,8 +62,10 @@ export type Database = {
           user_id: string
         }
         Update: {
+          category?: string | null
           created_at?: string | null
           description?: string | null
+          desirable?: boolean
           id?: string
           last_occurred_at?: string | null
           name?: string

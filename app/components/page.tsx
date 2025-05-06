@@ -1,4 +1,6 @@
+'use client'
 import { Stack } from '@/components/layouts'
+import { TimestampSelector } from '@/components/timestamp-selector'
 import { Heading, Body, Caption } from '@/components/typography'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
@@ -13,6 +15,7 @@ import { CircleAlert, Laptop } from 'lucide-react'
 import React from 'react'
 
 const Page = () => {
+  const [timestamp, setTimestamp] = React.useState<Date | undefined>(new Date())
   return (
     <Stack direction='col'>
       <Heading>Components</Heading>
@@ -119,6 +122,17 @@ const Page = () => {
         <CardContent>Card Content</CardContent>
         <CardFooter>Card Footer</CardFooter>
       </Card>
+
+      <Separator />
+
+      <Body>Timestamp Selector</Body>
+      <TimestampSelector
+        value={timestamp}
+        onChange={(val) => {
+          console.log(val)
+          setTimestamp(val)
+        }}
+      />
     </Stack>
   )
 }

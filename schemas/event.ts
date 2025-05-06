@@ -16,5 +16,6 @@ export type UpdateEventSchema = z.infer<typeof updateEventSchema>
 export const createOccurrenceSchema = z.object({
   event_id: z.string().trim().min(1),
   notes: z.string().optional(),
+  occurred_at: z.date().optional(),
 })
 export type CreateOccurrenceSchema = z.infer<typeof createOccurrenceSchema>

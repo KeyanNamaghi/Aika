@@ -25,6 +25,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { timeSince } from '@/lib/time'
 import { Input } from '@/components/ui/input'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import Link from 'next/link'
 
 export const Event = ({
   created_at,
@@ -50,7 +51,7 @@ export const Event = ({
     formState: { errors },
   } = useForm<CreateOccurrenceSchema>({
     resolver: zodResolver(createOccurrenceSchema),
-    defaultValues: { notes: '', event_id: id },
+    defaultValues: { notes: '', event_id: id, occurred_at: new Date() },
   })
 
   return (
@@ -120,6 +121,11 @@ export const Event = ({
                       </Alert>
                     )}
                   </form>
+                  <Link href={`/protected/occurrence/${id}`}>
+                    <Button className='w-full' variant='outline'>
+                      Advanced
+                    </Button>
+                  </Link>
                   <DrawerClose asChild>
                     <Button variant='ghost'>Cancel</Button>
                   </DrawerClose>

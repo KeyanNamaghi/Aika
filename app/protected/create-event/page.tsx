@@ -13,7 +13,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { FormInput } from '@/components/form-input'
 import { Button } from '@/components/ui/button'
 
-export default async function CreateEventPage() {
+export default function CreateEventPage() {
   const { executeAsync, hasErrored, isPending } = useAction(createEvent, { onSuccess: () => resetForm() })
   const {
     handleSubmit,
@@ -69,7 +69,7 @@ export default async function CreateEventPage() {
             render={({ field: { onChange } }) => (
               <RadioGroup defaultValue='yes' className='gap-4' onValueChange={onChange}>
                 <Label>Is this a good thing?</Label>
-                <Stack direction='row' gap='8'>
+                <Stack direction='row' gap='4'>
                   <Stack direction='row' gap='2'>
                     <RadioGroupItem value='yes' id='option-yes' defaultChecked />
                     <Label className='font-normal' htmlFor='option-yes'>
