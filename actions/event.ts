@@ -3,7 +3,7 @@ import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 
 import { actionClient } from '@/lib/safe-action'
-import { createEventOccurrenceSchema, createEventSchema, deleteEventSchema } from '@/schemas/event'
+import { createOccurrenceSchema, createEventSchema, deleteEventSchema, updateEventSchema } from '@/schemas/event'
 import { redirect } from 'next/navigation'
 
 export const createEvent = actionClient
@@ -60,7 +60,7 @@ export const deleteEventAction = async (formData: FormData) => {
 // })
 
 export const createOccurrence = actionClient
-  .schema(createEventOccurrenceSchema)
+  .schema(createOccurrenceSchema)
   .action(async ({ parsedInput: { event_id, notes } }) => {
     if (!event_id) throw new Error('event_id is required')
     const supabase = await createClient()

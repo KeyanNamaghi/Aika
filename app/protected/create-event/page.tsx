@@ -69,7 +69,7 @@ export const CreateEvent = () => {
             render={({ field: { onChange } }) => (
               <RadioGroup defaultValue='yes' className='gap-4' onValueChange={onChange}>
                 <Label>Is this a good thing?</Label>
-                <Stack direction='row' gap='6'>
+                <Stack direction='row' gap='8'>
                   <Stack direction='row' gap='2'>
                     <RadioGroupItem value='yes' id='option-yes' defaultChecked />
                     <Label className='font-normal' htmlFor='option-yes'>

@@ -1,6 +1,5 @@
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
-import { Note } from './note'
 import Link from 'next/link'
 import { Stack } from '@/components/layouts'
 import { Event } from './event'
