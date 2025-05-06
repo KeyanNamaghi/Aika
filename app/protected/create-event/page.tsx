@@ -13,7 +13,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { FormInput } from '@/components/form-input'
 import { Button } from '@/components/ui/button'
 
-export const CreateEvent = () => {
+export default async function CreateEventPage() {
   const { executeAsync, hasErrored, isPending } = useAction(createEvent, { onSuccess: () => resetForm() })
   const {
     handleSubmit,
@@ -108,5 +108,3 @@ export const CreateEvent = () => {
     </Stack>
   )
 }
-
-export default CreateEvent
