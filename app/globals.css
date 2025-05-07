@@ -120,7 +120,7 @@
     position: fixed;
     inset: 0;
     width: 100vw;
-    height: 100%;
+    height: 100lvh;
     pointer-events: none;
   }
 }
