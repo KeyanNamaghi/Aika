@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Body, Caption } from '@/components/typography'
 import { Database } from '@/database.types'
 import { Stack } from '@/components/layouts'
@@ -17,9 +17,9 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 import { CircleAlert, EllipsisVertical } from 'lucide-react'
-import { createOccurrence, deleteEvent, deleteEventAction } from '@/actions/event'
+import { createOccurrence, deleteEventAction } from '@/actions/event'
 import { useAction } from 'next-safe-action/hooks'
-import { createOccurrenceSchema, CreateOccurrenceSchema, deleteEventSchema, DeleteEventSchema } from '@/schemas/event'
+import { createOccurrenceSchema, CreateOccurrenceSchema } from '@/schemas/event'
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { timeSince } from '@/lib/time'
@@ -121,11 +121,9 @@ export const Event = ({
                       </Alert>
                     )}
                   </form>
-                  <Link href={`/protected/occurrence/${id}`}>
-                    <Button className='w-full' variant='outline'>
-                      Advanced
-                    </Button>
-                  </Link>
+                  <Button asChild variant='outline'>
+                    <Link href={`/protected/occurrence/${id}`}>Advanced</Link>
+                  </Button>
                   <DrawerClose asChild>
                     <Button variant='ghost'>Cancel</Button>
                   </DrawerClose>

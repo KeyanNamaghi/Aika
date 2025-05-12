@@ -1,20 +1,17 @@
 'use client'
 import { Controller, useForm } from 'react-hook-form'
 import { useAction } from 'next-safe-action/hooks'
-import { CircleAlert, Loader2 } from 'lucide-react'
+import { CircleAlert } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { createEvent, createOccurrence } from '@/actions/event'
-import { createEventSchema, CreateEventSchema, CreateOccurrenceSchema, createOccurrenceSchema } from '@/schemas/event'
+import { createOccurrence } from '@/actions/event'
+import { CreateOccurrenceSchema, createOccurrenceSchema } from '@/schemas/event'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Heading } from '@/components/typography'
 import { Stack } from '@/components/layouts'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { FormInput } from '@/components/form-input'
 import { Button } from '@/components/ui/button'
 import { TimestampSelector } from '@/components/timestamp-selector'
 import { Input } from '@/components/ui/input'
-import { redirect, useParams, useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export default function OccurrencePage() {
   const { id } = useParams()
@@ -36,7 +33,7 @@ export default function OccurrencePage() {
   })
 
   return (
-    <Stack direction='col'>
+    <Stack direction='col' className='mx-auto max-w-xl'>
       <TimestampSelector value={watch('occurred_at')} onChange={(val) => setValue('occurred_at', val)} />
       <form className='flex flex-col gap-2' onSubmit={handleSubmit(executeAsync)}>
         <Controller
@@ -56,6 +53,9 @@ export default function OccurrencePage() {
           </Alert>
         )}
       </form>
+      <Button asChild disabled={isPending} variant='outline'>
+        <Link href={`/protected`}>Cancel</Link>
+      </Button>
     </Stack>
   )
 }

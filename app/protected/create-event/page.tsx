@@ -25,7 +25,7 @@ export default function CreateEventPage() {
   })
 
   return (
-    <Stack direction='col'>
+    <Stack direction='col' className='mx-auto max-w-2xl'>
       <Heading>What do you want to track?</Heading>
 
       <form onSubmit={handleSubmit(executeAsync)}>

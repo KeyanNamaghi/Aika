@@ -2,7 +2,7 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { Stack } from '@/components/layouts'
-import { Event } from './event'
+import Events from './client'
 
 export default async function ProtectedPage() {
   const supabase = await createClient()
@@ -17,16 +17,7 @@ export default async function ProtectedPage() {
 
   return (
     <Stack direction='col' align='center' className='m-auto max-w-2xl'>
-      <Link href='/protected/create-event'>
-        <h1 className='text-2xl font-bold'>Create Event</h1>
-      </Link>
-      {events && (
-        <div className='flex w-full flex-col gap-2'>
-          {events.map((event) => (
-            <Event key={event.id} {...event} />
-          ))}
-        </div>
-      )}
+      <Events events={events ?? []} />
     </Stack>
   )
 }
